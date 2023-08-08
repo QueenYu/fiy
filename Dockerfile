@@ -16,7 +16,7 @@ RUN pwd && ls
 
 RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-w -s" -a -installsuffix cgo -o fiy .
 
-FROM alpine
+FROM alpine:3.18.3
 
 COPY --from=builder /go/release/fiy /
 COPY --from=builder /go/release/config/ /config/
